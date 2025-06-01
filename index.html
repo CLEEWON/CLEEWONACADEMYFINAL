@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleewon Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .header-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Logo Screen */
+        .logo-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #2c3e50;
+            border-radius: 50%;
+            position: relative;
+        }
+
+.logo-icon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    background-image: url('logo.png.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent; /* Penting */
+}
+
+
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Login Form */
+        .login-form {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+.login-logo {
+    width: 60px;
+    height: 60px;
+    background-image: url('logo.png.jpg');
+    background-size: contain;        /* atau cover jika ingin memenuhi area */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 70px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;   /* pastikan latar belakang tidak hitam */
+}
+
+
+        .login-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            background: #f8f9fa;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: #ff6b35;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #e55a2b;
+        }
+
+        .forgot-password {
+            margin-top: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            padding: 20px;
+        }
+
+        .welcome-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .welcome-subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+
+                .course-card2 {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #ff8e2b;
+
+        }        .course-card3 {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #0d2427;
+        }
+
+        .course-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .course-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .course-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: #ff6b35;
+        }
+
+        /* .special-offer {
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        } */
+
+        /* .offer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        } */
+
+        /* .offer-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        } */
+
+        /* Forum */
+        .forum-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .forum-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .forum-subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .forum-post {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .post-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .post-content {
+            background: #ff6b35;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-left: 50px;
+        }
+
+        /* Profile */
+        .profile-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: #2c3e50;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .profile-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .profile-email {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .profile-menu {
+            text-align: left;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background: #f8f9fa;
+        }
+
+        .menu-icon {
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 400px;
+            width: 100%;
+            background: #2c3e50;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .nav-item.active {
+            opacity: 1;
+            color: #ff6b35;
+        }
+
+        .nav-item:hover {
+            opacity: 1;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* Screen Management */
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        .screen.active.dashboard {
+            padding-bottom: 100px;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 500px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Loading Screen -->
+        <div class="loading" id="loading">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <div class="logo-text">CLEEWON<br>ACADEMY</div>
+            </div>
+        </div>
+
+        <!-- Splash Screen -->
+        <div class="screen active" id="splash">
+            <div class="logo-screen">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                </div>
+                <div class="logo-text">CLEEWON<br>ACADEMY</div>
+            </div>
+        </div>
+
+        <!-- Login Screen -->
+        <div class="screen" id="login">
+            <div class="login-form">
+                <div class="login-logo"></div>
+                <div class="login-title">CLEEWON<br>ACADEMY</div>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="USERNAME" id="username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-input" placeholder="PASSWORD" id="password">
+                    </div>
+                    <button type="submit" class="login-btn">MASUK</button>
+                </form>
+                
+                <div class="forgot-password">
+                    Tidak memiliki akun?
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Screen -->
+        <div class="screen" id="register">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('login')">←</button>
+                <div class="header-title">Daftar Akun</div>
+            </div>
+            <div class="login-form">
+                <div class="login-logo"></div>
+                <div class="login-title">CLEEWON<br>ACADEMY</div>
+                
+                <form id="registerForm">
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="USERNAME" id="regUsername">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-input" placeholder="PASSWORD" id="regPassword">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-input" placeholder="KONFIRMASI PASSWORD" id="regConfirmPassword">
+                    </div>
+                    <button type="submit" class="login-btn">DAFTAR</button>
+                </form>
+                
+                <div class="forgot-password">
+                    Sudah memiliki akun?
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div class="screen dashboard" id="dashboard">
+            <div class="welcome-header">
+                <div class="welcome-title">Halo Charlee !</div>
+                <div class="welcome-subtitle">Apa yang ingin kamu pelajari hari ini?</div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-title">∑ Math</div>
+                <div class="course-subtitle">Matematika</div>
+                <div class="course-rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+            </div>
+
+
+            <div class="course-card2">
+                <div class="course-title">🏆 Sains</div>
+                <div class="course-subtitle">Ilmu Pengetahuan</div>
+                <div class="course-rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+            </div>
+
+            <div class="course-card3">
+                <div class="course-title">🌐 Social</div>
+                <div class="course-subtitle">Sosial</div>
+                <div class="course-rating">
+                    ⭐⭐⭐⭐
+                </div>
+            </div>
+        </div>
+
+        <!-- Math Course Screen -->
+
+        
+        <div class="screen" id="mathCourse">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('dashboard')">←</button>
+                <div class="header-title">∑ Math</div>
+            </div>
+                        <div class="course-card">
+                <div class="course-title">∑ Math</div>
+                <div class="course-subtitle">Matematika</div>
+                <div class="course-rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+            </div>
+            <div class="dashboard">
+                <div class="course-card">
+                    <div class="course-title">📹 Video Perkenalan materi</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">📊 Materi Aljabar</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">📈 Materi Pitagoras</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">📹 Video Rangkuman</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">📝 Test pengetahuan !</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forum Screen -->
+        <div class="screen dashboard" id="forum">
+            <div class="forum-header">
+                <div class="forum-title">Forum</div>
+                <div class="forum-title">Percakapan</div>
+                <div class="forum-subtitle">Terlibat dalam diskusi dengan guru!</div>
+            </div>
+
+            <div class="forum-post">
+                <div class="post-user">
+                    <div class="user-avatar">👩‍🏫</div>
+                    <div>
+                        <div style="font-weight: 600;">@Ridwan</div>
+                        <div style="font-size: 12px; color: #666;">Murid</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    Ada yang tau teori big-bang ?
+                </div>
+            </div>
+
+            <div class="forum-post">
+                <div class="post-user">
+                    <div class="user-avatar">👨‍🎓</div>
+                    <div>
+                        <div style="font-weight: 600;">@Rizkychohan</div>
+                        <div style="font-size: 12px; color: #666;">MURID</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    SIapa penemu teori relativitas ?
+                </div>
+            </div>
+
+            <div class="forum-post">
+                <div class="post-user">
+                    <div class="user-avatar">👩‍🎓</div>
+                    <div>
+                        <div style="font-weight: 600;">@Tsaniiii</div>
+                        <div style="font-size: 12px; color: #666;">MURID</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    Kenapa netizen Tiktok anti kritik ?
+                </div>
+            </div>
+
+            <div class="forum-post">
+                <div class="post-user">
+                    <div class="user-avatar">👨‍🎓</div>
+                    <div>
+                        <div style="font-weight: 600;">@Rafi</div>
+                        <div style="font-size: 12px; color: #666;">MURID</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    Teori apa yang mendasar pada teori aljabar ?
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Screen -->
+        <div class="screen dashboard" id="profile">
+            <div class="profile-section">
+                <div class="profile-avatar">👤</div>
+                <div class="profile-name">Charlee</div>
+                <div class="profile-email">charlee@example.com</div>
+                
+                <div class="profile-menu">
+                    <div class="menu-item">
+                        <div style="display: flex; align-items: center;">
+                            <span class="menu-icon">⚙️</span>
+                            <span>Settings</span>
+                        </div>
+                        <span>→</span>
+                    </div>
+                    <div class="menu-item">
+                        <div style="display: flex; align-items: center;">
+                            <span class="menu-icon">🔔</span>
+                            <span>Notification</span>
+                        </div>
+                        <span>→</span>
+                    </div>
+                    <div class="menu-item">
+                        <div style="display: flex; align-items: center;">
+                            <span class="menu-icon">🔒</span>
+                            <span>Security</span>
+                        </div>
+                        <span>→</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Screen -->
+        <!-- <div class="screen" id="chat">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('dashboard')">←</button>
+                <div class="header-title">Live Chatting</div>
+            </div>
+            <div style="padding: 20px; text-align: center; margin-top: 100px;">
+                <div style="background: #ff6b35; color: white; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">Ingin Menutup Aplikasi ?</div>
+                    <div style="font-size: 14px; opacity: 0.9;">Klik "Ya" untuk keluar dari aplikasi</div>
+                    <div style="margin-top: 20px;">
+                        <button style="background: white; color: #ff6b35; border: none; padding: 10px 20px; border-radius: 10px; margin-right: 10px; cursor: pointer;">Ya</button>
+                        <button style="background: rgba(255,255,255,0.2); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer;">Tidak</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="#" class="nav-item active" onclick="showScreen('dashboard')">
+                <div class="nav-icon">🏠</div>
+                <div>Home</div>
+            </a>
+            <a href="#" class="nav-item" onclick="showScreen('mathCourse')">
+                <div class="nav-icon">📚</div>
+                <div>Course</div>
+            </a>
+            <a href="#" class="nav-item" onclick="showScreen('forum')">
+                <div class="nav-icon">💬</div>
+                <div>Forum</div>
+            </a>
+            <a href="#" class="nav-item" onclick="showScreen('profile')">
+                <div class="nav-icon">👤</div>
+                <div>Profile</div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let currentUser = null;
+
+        // Initialize app
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                setTimeout(() => {
+                    showScreen('login');
+                }, 2000);
+            }, 1500);
+        });
+
+        // Screen management
+        function showScreen(screenId) {
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            // Show selected screen
+            document.getElementById(screenId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show/hide bottom navigation
+            const bottomNav = document.querySelector('.bottom-nav');
+            if (['dashboard', 'mathCourse', 'forum', 'profile'].includes(screenId)) {
+                bottomNav.style.display = 'flex';
+                
+                // Set active nav item
+                const navMap = {
+                    'dashboard': 0,
+                    'mathCourse': 1,
+                    'forum': 2,
+                    'profile': 3
+                };
+                
+                if (navMap[screenId] !== undefined) {
+                    document.querySelectorAll('.nav-item')[navMap[screenId]].classList.add('active');
+                }
+            } else {
+                bottomNav.style.display = 'none';
+            }
+        }
+
+        // Login form
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username && password) {
+                currentUser = { username, email: username + '@example.com' };
+                showScreen('dashboard');
+                
+                // Update profile info
+                document.querySelector('.profile-name').textContent = username;
+                document.querySelector('.profile-email').textContent = username + '@example.com';
+                document.querySelector('.welcome-title').textContent = `Halo ${username} !`;
+            } else {
+                alert('Please enter username and password');
+            }
+        });
+
+        // Register form
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('regConfirmPassword').value;
+            
+            if (username && password && password === confirmPassword) {
+                alert('Registration successful! Please login.');
+                showScreen('login');
+            } else {
+                alert('Please fill all fields correctly');
+            }
+        });
+
+        // Course card clicks
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.addEventListener('click', function() {
+                if (card.querySelector('.course-title').textContent.includes('Math')) {
+                    showScreen('mathCourse');
+                }
+            });
+        });
+
+        // Forum post interactions
+        document.querySelectorAll('.forum-post').forEach(post => {
+            post.addEventListener('click', function() {
+                showScreen('chat');
+            });
+        });
+
+        // Profile menu interactions
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const menuText = item.querySelector('span:not(.menu-icon)').textContent;
+                alert(`${menuText} feature coming soon!`);
+            });
+        });
+
+        // Register link
+        document.querySelector('.forgot-password').addEventListener('click', function() {
+            showScreen('register');
+        });
+    </script>
+</body>
+</html>
